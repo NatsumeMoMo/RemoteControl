@@ -4,6 +4,9 @@
 #include "pch.h"
 #include "framework.h"
 #include "Server.h"
+#include "CServerSocket.h"
+
+#include <direct.h>
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -15,6 +18,10 @@
 CWinApp theApp;
 
 using namespace std;
+
+std::string MakeDriverInfo(){
+	
+}
 
 int main()
 {
@@ -34,6 +41,22 @@ int main()
         else
         {
             // TODO: 在此处为应用程序的行为编写代码。
+            //CServerSocket* mServer = CServerSocket::getInstace();
+            //int count = 0;
+            //while(mServer)
+            //{
+	           // if(mServer->AcceptClient() == false)
+	           // {
+		          //  if(count >= 3)
+		          //  {
+            //            MessageBox(nullptr, _T("多次无法正常接入用户, 结束程序! "), _T("接入用户失败"), MB_OK | MB_ICONERROR);
+            //            exit(0);
+		          //  }
+            //        MessageBox(nullptr, _T("多次无法正常接入用户, 自动重试! "), _T("接入用户失败"), MB_OK | MB_ICONERROR);
+            //        count++;
+	           // }
+            //    int ret = mServer->DealCommand();
+            //}
         }
     }
     else
