@@ -8,6 +8,18 @@ class CPacket
 {
 public:
 	CPacket() : head_(0), len_(0), cmd_(0), sum_(0) {}
+	CPacket(WORD nCmd, const BYTE* pData, size_t nSize)
+	{
+		head_ = 0xFEFF;
+		len_ = nSize + 4; // cmd + sum
+		cmd_ = nCmd;
+		memcpy((void*)data_.data(), pData, nSize);
+		sum_ = 0;
+		for (size_t j = 0; j < data_.size(); j++)
+		{
+			sum_ += BYTE(data_[j]) & 0xFF; // 取一个字节
+		}
+	}
 	CPacket(const CPacket& other)
 	{
 		head_ = other.head_;
