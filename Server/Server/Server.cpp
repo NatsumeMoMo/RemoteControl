@@ -19,8 +19,17 @@ CWinApp theApp;
 
 using namespace std;
 
-std::string MakeDriverInfo(){
-	
+std::string MakeDriverInfo(){ // 1-> A 2->B 3->C ... 26->Z
+    std::string result;
+    for(int i = 1; i <= 26; i++)
+    {
+	    if(_chdrive(i) == 0)
+	    {
+            if (result.size() > 0)
+                result += ',';
+            result += 'A' + i - 1;
+	    }
+    }
 }
 
 int main()
